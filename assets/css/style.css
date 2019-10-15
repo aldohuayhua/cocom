@@ -1,0 +1,32 @@
+/* Breaking Trivia stlye */
+#container{
+    position: absolute;
+    left: 15%;
+    top: 5%;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    height: 500px;
+    width: 900px;
+    /* margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+    margin-left: 100px; */
+    background-image: url(../images/breakingbad3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: 800px,800px,800px,800px; */
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+
+}
+body{
+    background-image: url(../images/breakingbad5.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
