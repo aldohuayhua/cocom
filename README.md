@@ -3,7 +3,7 @@ Trivia Game - JavaScript HW#2
 
 ### Option Two: Advanced Assignment (Timed Questions)
 
-![Advanced](RUT-JC-FSF-PT-09-2019-U-C\01-Class-Content\05-timers-local-storage\02-Homework\Instructions\Images\2-advanced.jpg)
+![Advanced]
 
 **[Click Here to Watch the demo](https://youtu.be/xhmmiRmxQ8Q)**.
 
