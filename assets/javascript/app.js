@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    var answerCorrectText = "Thats right!";
-    var answerWrongText = "No thats incorrect, the correct answer is:";
-    var answerTimesUpText = "Time is up! the correct answer is:"
     var submitInput = $('<input type="submit" value="Submit">');
-    var nextQuestionsButton = $('<input type="submit" value="Next Question">');
     var wins = 0;
     var loss = 0;
     var unanswered = 0;
-    var currentTrivia = 0;
+    questionOneAnswered = false;
+    questionTwoAnswered = false;
+    questionThreeAnswered = false;
+
+ 
 
     var startButton = $("<button>").text("START");
     $("#answerDisplay1").html(startButton).show();
@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
 
     function trivia() {
-        var time = 30;
+        var time = 10;
         var intervalId = setInterval(count, 1000);
         $("#timerDisplay").show();
         startButton.hide();
@@ -67,8 +67,34 @@ $(document).ready(function () {
             var timeConverted = timeConverter(time);
             $("#timerDisplay").html("Your remaining time is: " + timeConverted);
             if (time === 0) {
-                clearInterval(intervalId)
-                unanswered++;
+                if(!questionOneAnswered){
+                    unanswered++;
+                    $("#questionDisplay1").hide();
+                    $("#firstChoice1").hide();
+                    $("#secondChoice1").hide();
+                    $("#thirdChoice1").hide();
+                    $("#fourthChoice1").hide();
+    
+                };
+                if(!questionTwoAnswered){
+                    unanswered++;
+                    $("#questionDisplay2").hide();
+                    $("#firstChoice2").hide();
+                    $("#secondChoice2").hide();
+                    $("#thirdChoice2").hide();
+                    $("#fourthChoice2").hide();
+    
+                };
+                if(!questionThreeAnswered){
+                    unanswered++;
+                    $("#questionDisplay3").hide();
+                    $("#firstChoice3").hide();
+                    $("#secondChoice3").hide();
+                    $("#thirdChoice3").hide();
+                    $("#fourthChoice3").hide();
+    
+                };  
+                clearInterval(intervalId)            
                 $("#timerDisplay").hide();
                 $("#submitButton").hide();
                 $("#questionDisplay1").hide();
@@ -95,9 +121,11 @@ $(document).ready(function () {
                 var noAnswerDisplay = $("<div>").text("No Answer: ");
                 noAnswerDisplay.append(unanswered);
                 $("#container").append(noAnswerDisplay);
+                console.log(unanswered);
             };
         };
         $(":radio[name=currentQuestion1]").change(function () {
+            questionOneAnswered = true;
             userSelection1 = this.value;
             $("#submitButton").on("click", function () {
                 if (userSelection1 === correctAnswer1) {
@@ -124,6 +152,7 @@ $(document).ready(function () {
             });
         });
         $(":radio[name=currentQuestion2]").change(function () {
+            questionTwoAnswered = true;
             userSelection2 = this.value;
             $("#submitButton").on("click", function () {
                 if (userSelection2 === correctAnswer2) {
@@ -150,6 +179,7 @@ $(document).ready(function () {
             });
         });
         $(":radio[name=currentQuestion3]").change(function () {
+            questionThreeAnswered = true;
             userSelection3 = this.value;
             $("#submitButton").on("click", function () {
                 if (userSelection3 === correctAnswer3) {
